@@ -1,0 +1,33 @@
+<div class="card">
+  <div class="card-body">
+    <div class="d-flex justify-content-center">
+      <img src="https://i.pravatar.cc/300?img=4" width="96" class="rounded-circle ratio ratio-1x1" style="width: 96px;">
+    </div>
+
+    <div class="mt-5">
+      <div>
+        <div class="row">
+          <div class="col col-12 col-md-6">
+            <%= render partial: "user_info_item", locals: { title: "Name", value: "John Doe" } %>
+          </div>
+          <div class="col">
+            <%= render partial: "user_info_item", locals: { title: "Birthday", value: "00/00/0000" } %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col col-12 col-md-6">
+            <%= render partial: "user_info_item", locals: { title: "Gender", value: "John Doe" } %>
+          </div>
+          <div class="col">
+            <%= render partial: "user_info_item", locals: { title: "Hometow", value: "John Doe" } %>
+          </div>
+        </div>
+
+        <div class="row">
+          <%= render partial: "user_info_item", locals: { title: "Email", value: "mail@example.com" } %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

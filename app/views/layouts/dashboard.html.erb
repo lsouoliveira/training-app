@@ -1,0 +1,9 @@
+<%= provide(:content) do %>
+  <%= render partial: "layouts/navbar" %>
+
+  <main class="container py-4">
+    <%= yield %>
+  </main>
+<% end %>
+
+<%= render template: "layouts/application" %>
