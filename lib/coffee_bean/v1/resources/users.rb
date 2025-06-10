@@ -1,4 +1,4 @@
-module CoffeeBeanApi
+module CoffeeBean
   module V1
     module Resources
       class Users < Resource

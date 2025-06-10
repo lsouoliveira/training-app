@@ -1,4 +1,4 @@
-module CoffeeBeanApi
+module CoffeeBean
   module Errors
     class ClientError < Error
       attr_reader :response

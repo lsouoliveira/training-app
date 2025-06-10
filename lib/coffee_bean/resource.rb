@@ -1,4 +1,4 @@
-module CoffeeBeanApi
+module CoffeeBean
   class Resource
     attr_reader :client
 

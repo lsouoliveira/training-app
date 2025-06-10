@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe CoffeeBeanApi::V1::Client do
+RSpec.describe CoffeeBean::V1::Client do
   describe "#initialize" do
     it "builds the client" do
       client = described_class.new(
@@ -9,7 +9,7 @@ RSpec.describe CoffeeBeanApi::V1::Client do
         app_secret: "test"
       )
 
-      expect(client).to be_a(CoffeeBeanApi::V1::Client)
+      expect(client).to be_a(CoffeeBean::V1::Client)
       expect(client.base_url).to eq("http://example.com")
     end
   end
@@ -34,7 +34,7 @@ RSpec.describe CoffeeBeanApi::V1::Client do
         app_secret: "test"
       )
 
-      expect(client.users).to be_a(CoffeeBeanApi::V1::Resources::Users)
+      expect(client.users).to be_a(CoffeeBean::V1::Resources::Users)
     end
   end
 end

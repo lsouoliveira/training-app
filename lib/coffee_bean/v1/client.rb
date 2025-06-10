@@ -1,4 +1,4 @@
-module CoffeeBeanApi
+module CoffeeBean
   module V1
     class Client
       attr_reader :base_url
@@ -11,6 +11,10 @@ module CoffeeBeanApi
 
       def users
         @_users ||= Resources::Users.new(self)
+      end
+
+      def datastore
+        @_datastore ||= Resources::Datastore.new(self)
       end
 
       def connection

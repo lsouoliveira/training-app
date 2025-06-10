@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe CoffeeBeanApi::V1::Resources::Users do
+RSpec.describe CoffeeBean::V1::Resources::Users do
   describe "#create" do
     context "when the request is successful" do
       it "does not raise an error" do
-        client = CoffeeBeanApi::V1::Client.new(
+        client = CoffeeBean::V1::Client.new(
           base_url: "http://example.com",
           app_id: "test",
           app_secret: "test"
@@ -30,7 +30,7 @@ RSpec.describe CoffeeBeanApi::V1::Resources::Users do
 
     context "when the request fails" do
       it "returns a client error" do
-        client = CoffeeBeanApi::V1::Client.new(
+        client = CoffeeBean::V1::Client.new(
           base_url: "http://example.com",
           app_id: "test",
           app_secret: "test"
@@ -50,7 +50,7 @@ RSpec.describe CoffeeBeanApi::V1::Resources::Users do
 
         expect do
           resource.create(**params)
-        end.to raise_error(CoffeeBeanApi::Errors::ClientError)
+        end.to raise_error(CoffeeBean::Errors::ClientError)
       end
     end
   end
@@ -58,7 +58,7 @@ RSpec.describe CoffeeBeanApi::V1::Resources::Users do
   describe "#login" do
     context "when the request is successful" do
       it "does not raise an error" do
-        client = CoffeeBeanApi::V1::Client.new(
+        client = CoffeeBean::V1::Client.new(
           base_url: "http://example.com",
           app_id: "test",
           app_secret: "test"
@@ -83,7 +83,7 @@ RSpec.describe CoffeeBeanApi::V1::Resources::Users do
 
     context "when the request fails" do
       it "returns a client error" do
-        client = CoffeeBeanApi::V1::Client.new(
+        client = CoffeeBean::V1::Client.new(
           base_url: "http://example.com",
           app_id: "test",
           app_secret: "test"
@@ -102,7 +102,7 @@ RSpec.describe CoffeeBeanApi::V1::Resources::Users do
 
         expect do
           resource.login(**params)
-        end.to raise_error(CoffeeBeanApi::Errors::ClientError)
+        end.to raise_error(CoffeeBean::Errors::ClientError)
       end
     end
   end
