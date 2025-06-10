@@ -28,4 +28,10 @@
 #       enabled: "ON"
 
 en:
-  hello: "Hello world"
+  activemodel:
+    errors:
+      models:
+        user:
+          attributes:
+            password_confirmation:
+              passwords_dont_match: "needs to be equal to password"

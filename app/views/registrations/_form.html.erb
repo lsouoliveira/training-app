@@ -1,0 +1,97 @@
+<%= form_with url: registration_path, model: user do |f| %>
+  <% if user.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <div class="d-flex align-items-center">
+        <%= "#{pluralize(user.errors.count, "error")} prohibited this user from being saved:" %>
+      </div>
+      <div>
+        <ul>
+          <% user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <div class="form-floating">
+      <%= f.text_field(
+        :name, 
+        class: "rounded-bottom-0", 
+        placeholder: "Name", 
+        required: true,
+        style: "margin-bottom: -1px"
+      ) %>
+      <%= f.label :name %>
+    </div>
+
+    <div class="form-floating">
+      <%= f.date_field(
+        :birthday, 
+        class: "rounded-0", 
+        placeholder: "Birthday", 
+        required: true,
+        style: "margin-bottom: -1px;"
+      ) %>
+      <%= f.label :birthday, "Birthday" %>
+    </div>
+
+    <div class="form-floating">
+        <%= f.select(
+        :gender, 
+        User::GENDERS.values.map(&:capitalize), 
+        { prompt: "Select Gender" }, 
+        class: "rounded-0", 
+        required: true, 
+        style: "margin-bottom: -1px;"
+      ) %>
+      <%= f.label :gender, "Gender" %>
+    </div>
+
+    <div class="form-floating">
+      <%= f.text_field(
+        :hometown, 
+        class: "rounded-0", 
+        placeholder: "Hometown", 
+        required: true,
+        style: "margin-bottom: -1px;"
+      ) %>
+      <%= f.label :hometown, "Hometown" %>
+    </div>
+
+    <div class="form-floating">
+      <%= f.email_field(
+        :email, 
+        class: "rounded-0", 
+        placeholder: "Email", 
+        required: true,
+        style: "margin-bottom: -1px;"
+      ) %>
+      <%= f.label :email, "Email" %>
+    </div>
+
+    <div class="form-floating">
+      <%= f.password_field(
+        :password, 
+        class: "rounded-0", 
+        placeholder: "Password", 
+        required: true,
+        style: "margin-bottom: -1px;"
+      ) %>
+      <%= f.label :password, "Password" %>
+    </div>
+
+    <div class="form-floating">
+      <%= f.password_field(
+        :password_confirmation, 
+        class: "rounded-top-0", 
+        required: true,
+        placeholder: "Password confirmation"
+      ) %>
+      <%= f.label :password_confirmation, "Password confirmation" %>
+    </div>
+  </div>
+
+  <%= f.submit "Sign up", class: "w-100 py-2"%>
+<% end %>

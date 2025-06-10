@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  default_form_builder FormBuilder
+
   include Authentication
 
   # Only allow modern browsers supporting webp images, web push, badges, import maps, CSS nesting, and CSS :has.
