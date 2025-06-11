@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe SessionsController, type: :controller do
-  describe "GET new" do
+  describe "GET #new" do
     it "returns a successful response" do
       get :new
 
@@ -9,7 +9,7 @@ RSpec.describe SessionsController, type: :controller do
     end
   end
 
-  describe "POST create" do
+  describe "POST #create" do
     context "when the params are valid" do
       it "redirects to the home page" do
         params = {
@@ -46,6 +46,16 @@ RSpec.describe SessionsController, type: :controller do
         expect(response).to have_http_status(:redirect)
         expect(response).to redirect_to(new_session_path)
       end
+    end
+  end
+
+  describe "DELETE #destroy" do
+    it "logouts the current user" do
+      login_as(User.new(user_id: 1234))
+
+      delete :destroy
+
+      expect(cookies.signed[:user_id]).to be_nil
     end
   end
 end
