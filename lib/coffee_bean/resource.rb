@@ -31,7 +31,7 @@ module CoffeeBean
       case response.status
       in [ 401 ]
         raise Errors::UnauthorizedError, response.body, "Unauthorized API request"
-      in [ 422 ]
+      in [ 400, 422 ]
         raise Errors::RequestError, response.body, "Invalid API request."
       else
         raise Errors::ClientError, response.body, "API Client error"

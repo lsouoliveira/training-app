@@ -21,6 +21,8 @@ class FormBuilder < ActionView::Helpers::FormBuilder
   private
 
   def errors_for?(name)
+    return false unless @object.respond_to?(:errors)
+
     @object.errors[name].any?
   end
 

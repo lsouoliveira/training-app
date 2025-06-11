@@ -41,3 +41,6 @@ en:
     create:
       success: User created successfully.
       error: An error occurred while trying to save the user. Please check the data and try again.
+  sessions:
+    create:
+      error: Email or password invalids.

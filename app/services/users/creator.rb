@@ -53,7 +53,7 @@ module Users
     def map_api_response_errors(response, user)
       body = response || {}
       errors = body["errors"] || []
-      mapped_errors = errors.map { map_error(it) }
+      mapped_errors = errors.filter_map { map_error(it) }
 
       if mapped_errors.empty?
         user.errors.add(:base, :request_error)
@@ -65,6 +65,8 @@ module Users
     def map_error(error)
       if error.values_at("attribute", "code") == [ "email_address", "taken" ]
         [ :email, :taken ]
+      elsif error.values_at("attribute", "code") == [ "email_address", "invalid" ]
+        [ :email, :invalid ]
       end
     end
   end

@@ -15,7 +15,11 @@ module CoffeeBean
           end
 
           def login(**params)
-            post("v1/marketing/login/users/login", body: params)
+            response = post("v1/marketing/login/users/login", body: params)
+
+            puts response.body
+
+            Objects::LoginApp::LoginResponse.new(user_id: response.body["user_id"])
           end
         end
       end

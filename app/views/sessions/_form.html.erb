@@ -1,0 +1,13 @@
+<%= form_with url: session_path do |f| %>
+  <div class="form-floating">
+    <%= f.email_field :email, placeholder: "name@example.com" %>
+    <%= f.label :email %>
+  </div>
+
+  <div class="form-floating mb-3">
+    <%= f.password_field :password, placeholder: "Password" %>
+    <%= f.label :password %>
+  </div>
+
+  <%= f.submit "Sign in", class: "w-100 py-2" %>
+<% end %>
