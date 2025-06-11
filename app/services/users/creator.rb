@@ -43,11 +43,12 @@ module Users
           email: user.email,
           hometown: user.hometown,
           birthday: user.birthday,
+          gender: user.gender,
           user_id: user.user_id
         }
       }
 
-      CoffeeBeanApi.datastore.objects.create("user_data", **payload)
+      CoffeeBeanApi.account.datastore.objects.create("user_data", **payload)
     end
 
     def map_api_response_errors(response, user)

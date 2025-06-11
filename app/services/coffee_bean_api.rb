@@ -7,8 +7,8 @@ class CoffeeBeanApi
     )
   end
 
-  def self.datastore
-    @_datastore_client ||= CoffeeBean::V1::DatastoreClient.new(
+  def self.account
+    @_datastore_client ||= CoffeeBean::V1::AccountClient.new(
       base_url: Rails.application.credentials.coffee_bean_api_base_url,
       api_id: Rails.application.credentials.coffee_bean_api_id,
       api_secret: Rails.application.credentials.coffee_bean_api_secret

@@ -1,6 +1,6 @@
 module CoffeeBean
   module V1
-    class DatastoreClient
+    class AccountClient
       attr_reader :base_url
 
       def initialize(base_url:, api_id:, api_secret:)
@@ -9,8 +9,12 @@ module CoffeeBean
         @api_secret = api_secret
       end
 
-      def objects
-        @_datastore ||= Resources::Datastore::Objects.new(self)
+      def datastore
+        @_datastore ||= Resources::Datastore.new(self)
+      end
+
+      def user_management
+        @_user_management ||= Resources::UserManagement.new(self)
       end
 
       def connection

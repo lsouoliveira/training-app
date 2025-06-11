@@ -11,13 +11,11 @@ module CoffeeBean
 
             raise "Invalid user id" if id.blank?
 
-            Objects::LoginApp::User.new(id: id.to_i)
+            Objects::User.new(id: id.to_i)
           end
 
           def login(**params)
             response = post("v1/marketing/login/users/login", body: params)
-
-            puts response.body
 
             Objects::LoginApp::LoginResponse.new(user_id: response.body["user_id"])
           end

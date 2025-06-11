@@ -4,7 +4,7 @@ RSpec.describe CoffeeBean::V1::Resources::Datastore::Objects do
   describe "#create" do
     context "when request is successfull" do
       it "does not raise an error" do
-        client = CoffeeBean::V1::DatastoreClient.new(
+        client = CoffeeBean::V1::AccountClient.new(
           base_url: "http://example.com",
           api_id: "test",
           api_secret: "test"
@@ -28,7 +28,7 @@ RSpec.describe CoffeeBean::V1::Resources::Datastore::Objects do
 
     context "when request fails" do
       it "raises a client error" do
-        client = CoffeeBean::V1::DatastoreClient.new(
+        client = CoffeeBean::V1::AccountClient.new(
           base_url: "http://example.com",
           api_id: "test",
           api_secret: "test"

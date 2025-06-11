@@ -1,9 +1,9 @@
 <div class="mb-4 text-center">
-  <h3>Welcome, John Doe!</h3>
+  <h3><%= "Welcome" + (Current.user.name.present? ? ", #{Current.user.name}!" : "!") %></h3>
 </div>
 
 <div>
   <div class="mx-auto" style="max-width: 640px;">
-    <%= render partial: "user_info" %>
+    <%= render partial: "user_info", locals: { user: Current.user } %>
   </div>
 </div>

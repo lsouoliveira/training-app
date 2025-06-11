@@ -4,10 +4,12 @@
 
     <div class="dropdown">
       <button type="button" data-bs-toggle="dropdown" aria-expanded="false" class="btn btn-link">
-        <img src="https://i.pravatar.cc/300?img=4" width="32" class="rounded-circle ratio ratio-1x1" style="width: 32px;">
+        <%= image_tag Current.user.picture_url || "avatar.png", class: "rounded-circle ratio ratio-1x1", style: "width: 32px;" %>
       </button>
       <ul class="dropdown-menu dropdown-menu-end">
-        <li><a class="dropdown-item" href="#">Logout</a></li>
+        <li>
+          <%= link_to "Logout", session_path, class: "dropdown-item", data: { turbo_method: :delete } %>
+        </li>
       </ul>
     </div>
   </div>

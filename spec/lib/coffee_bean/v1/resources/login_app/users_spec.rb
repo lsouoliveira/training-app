@@ -61,7 +61,7 @@ RSpec.describe CoffeeBean::V1::Resources::LoginApp::Users do
 
           expect do
             resource.create(**params)
-          end.to raise_error
+          end.to raise_error(RuntimeError)
         end
       end
     end
