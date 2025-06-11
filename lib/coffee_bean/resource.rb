@@ -28,7 +28,14 @@ module CoffeeBean
     end
 
     def handle_error_response(response)
-      raise Errors::ClientError, response, "API Client error"
+      case response.status
+      in [ 401 ]
+        raise Errors::UnauthorizedError, response.body, "Unauthorized API request"
+      in [ 422 ]
+        raise Errors::RequestError, response.body, "Invalid API request."
+      else
+        raise Errors::ClientError, response.body, "API Client error"
+      end
     end
   end
 end

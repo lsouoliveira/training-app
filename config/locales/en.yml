@@ -35,3 +35,9 @@ en:
           attributes:
             password_confirmation:
               passwords_dont_match: "needs to be equal to password"
+            base:
+              request_error: An error occurred while trying to save the user. Please check the data and try again.
+  registrations:
+    create:
+      success: User created successfully.
+      error: An error occurred while trying to save the user. Please check the data and try again.

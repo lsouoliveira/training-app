@@ -1,9 +1,17 @@
 class CoffeeBeanApi
-  def self.client
-    @_client ||= CoffeeBean::V1::Client.new(
+  def self.login_app
+    @_login_app_client ||= CoffeeBean::V1::LoginAppClient.new(
       base_url: Rails.application.credentials.coffee_bean_api_base_url,
       app_id: Rails.application.credentials.coffee_bean_app_id,
       app_secret: Rails.application.credentials.coffee_bean_app_secret
+    )
+  end
+
+  def self.datastore
+    @_datastore_client ||= CoffeeBean::V1::DatastoreClient.new(
+      base_url: Rails.application.credentials.coffee_bean_api_base_url,
+      api_id: Rails.application.credentials.coffee_bean_api_id,
+      api_secret: Rails.application.credentials.coffee_bean_api_secret
     )
   end
 end

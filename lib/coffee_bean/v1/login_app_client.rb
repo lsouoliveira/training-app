@@ -1,20 +1,16 @@
 module CoffeeBean
   module V1
-    class Client
+    class LoginAppClient
       attr_reader :base_url
 
       def initialize(base_url:, app_id:, app_secret:)
         @base_url = base_url
         @app_id = app_id
-        @app_secret = app_id
+        @app_secret = app_secret
       end
 
       def users
-        @_users ||= Resources::Users.new(self)
-      end
-
-      def datastore
-        @_datastore ||= Resources::Datastore.new(self)
+        @_users ||= Resources::LoginApp::Users.new(self)
       end
 
       def connection

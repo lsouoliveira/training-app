@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe CoffeeBean::V1::Resources::Users do
+RSpec.describe CoffeeBean::V1::Resources::LoginApp::Users do
   describe "#create" do
     context "when the request is successful" do
-      it "does not raise an error" do
-        client = CoffeeBean::V1::Client.new(
+      it "returns an user" do
+        client = CoffeeBean::V1::LoginAppClient.new(
           base_url: "http://example.com",
           app_id: "test",
           app_secret: "test"
@@ -20,17 +20,23 @@ RSpec.describe CoffeeBean::V1::Resources::Users do
         }
 
         stub_request(:post, "http://example.com/v1/marketing/login/users")
-          .and_return(status: 200, body: {}.to_json)
+          .and_return(
+            status: 200,
+            body: {}.to_json,
+            headers: {
+              "Location" => "https://api.socialidnow.com/v1/marketing/login/users/1234"
+            }
+          )
 
-        expect do
-          resource.create(**params)
-        end.not_to raise_error
+        user = resource.create(**params)
+
+        expect(user.id).to eq 1234
       end
     end
 
     context "when the request fails" do
       it "returns a client error" do
-        client = CoffeeBean::V1::Client.new(
+        client = CoffeeBean::V1::LoginAppClient.new(
           base_url: "http://example.com",
           app_id: "test",
           app_secret: "test"
@@ -58,7 +64,7 @@ RSpec.describe CoffeeBean::V1::Resources::Users do
   describe "#login" do
     context "when the request is successful" do
       it "does not raise an error" do
-        client = CoffeeBean::V1::Client.new(
+        client = CoffeeBean::V1::LoginAppClient.new(
           base_url: "http://example.com",
           app_id: "test",
           app_secret: "test"
@@ -83,7 +89,7 @@ RSpec.describe CoffeeBean::V1::Resources::Users do
 
     context "when the request fails" do
       it "returns a client error" do
-        client = CoffeeBean::V1::Client.new(
+        client = CoffeeBean::V1::LoginAppClient.new(
           base_url: "http://example.com",
           app_id: "test",
           app_secret: "test"

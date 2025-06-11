@@ -6,11 +6,12 @@ class RegistrationsController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    @user = Users::Creator.new(user_params.to_hash).create_user
 
-    if @user.valid?
-    else
+    if @user.errors.any?
       render :new, status: :unprocessable_entity
+    else
+      redirect_to new_session_path, notice: t(".success")
     end
   end
 
