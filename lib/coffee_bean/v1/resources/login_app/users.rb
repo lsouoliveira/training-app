@@ -19,6 +19,12 @@ module CoffeeBean
 
             Objects::LoginApp::LoginResponse.new(user_id: response.body["user_id"])
           end
+
+          def info(**params)
+            response = get("v1/marketing/login/info", params:)
+
+            Objects::User.new(id: response.body["user_id"])
+          end
         end
       end
     end

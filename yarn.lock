@@ -244,6 +244,11 @@
   resolved "https://registry.yarnpkg.com/@rails/actioncable/-/actioncable-8.0.200.tgz#1d27d9d55e45266e061190db045925e0b4d53d6b"
   integrity sha512-EDqWyxck22BHmv1e+mD8Kl6GmtNkhEPdRfGFT7kvsv1yoXd9iYrqHDVAaR8bKmU/syC5eEZ2I5aWWxtB73ukMw==
 
+"@rails/request.js@^0.0.12":
+  version "0.0.12"
+  resolved "https://registry.yarnpkg.com/@rails/request.js/-/request.js-0.0.12.tgz#3d1f73e7585141d9c4c2149a34476d128eb900bc"
+  integrity sha512-g3//JBja1s04Zflj7IoMLQuXza9i4ZvtLmm0r0dMwh1QQUs6rL2iKUOGGyERfLsd81SnXC5ucfVV//rtsDlEEA==
+
 ansi-regex@^5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/ansi-regex/-/ansi-regex-5.0.1.tgz#082cb2c89c9fe8659a311a53bd6a4dc5301db304"
