@@ -8,7 +8,7 @@ class CoffeeBeanApi
   end
 
   def self.oauth
-    @_login_app_client ||= CoffeeBean::V2::OAuthClient.new(
+    @_oauth ||= CoffeeBean::V2::OAuthClient.new(
       base_url: Rails.application.credentials.coffee_bean_api_base_url,
       app_id: Rails.application.credentials.coffee_bean_app_id,
       app_secret: Rails.application.credentials.coffee_bean_app_client_secret
