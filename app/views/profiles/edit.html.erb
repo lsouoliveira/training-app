@@ -1,0 +1,19 @@
+<div class="mx-auto" style="max-width: 640px;">
+  <div class="mb-4">
+    <h3>Edit Profile</h3>
+  </div>
+
+  <% if alert %>
+    <div class="alert alert-danger" role="alert">
+      <%= alert %>
+    </div>
+  <% end %>
+
+  <% if notice %>
+    <div class="alert alert-success" role="alert">
+      <%= notice %>
+    </div>
+  <% end %>
+
+  <%= render partial: "form", locals: { user: @user } %>
+</div>

@@ -153,4 +153,48 @@ RSpec.describe CoffeeBean::V1::Resources::LoginApp::Users do
       end
     end
   end
+
+  describe "#info" do
+    context "when the request is successful" do
+      it "returns the user info" do
+        client = CoffeeBean::V1::LoginAppClient.new(
+          base_url: "http://example.com",
+          app_id: "test",
+          app_secret: "test"
+        )
+        resource = described_class.new(client)
+
+        response = <<-JSON
+          {
+            "user_id": 1234
+          }
+        JSON
+
+        stub_request(:get, "http://example.com/v1/marketing/login/info")
+          .and_return(status: 200, body: response, headers: { "Content-Type" => "application/json" })
+
+        user = resource.info
+
+        expect(user.id).to eq 1234
+      end
+    end
+
+    context "when the request fails" do
+      it "raises an error" do
+        client = CoffeeBean::V1::LoginAppClient.new(
+          base_url: "http://example.com",
+          app_id: "test",
+          app_secret: "test"
+        )
+        resource = described_class.new(client)
+
+        stub_request(:get, "http://example.com/v1/marketing/login/info")
+          .and_return(status: 500, body: {}.to_json, headers: { "Content-Type" => "application/json" })
+
+        expect do
+          resource.info
+        end.to raise_error(CoffeeBean::Errors::ClientError)
+      end
+    end
+  end
 end

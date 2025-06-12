@@ -8,14 +8,19 @@ class FormBuilder < ActionView::Helpers::FormBuilder
   end
 
   def select(method, choices = nil, options = {}, html_options = {}, &block)
-    html_options[:class] = "form-control #{html_options[:class]}"
+    html_options[:class] = "form-select #{html_options[:class]}"
     add_error_classes(method, html_options)
     super(method, choices, options, html_options, &block)
   end
 
-  def submit(value, options)
+  def submit(value, options = {})
     options[:class] = "btn btn-primary #{options[:class]}"
     super(value, options)
+  end
+
+  def label(method, text = nil, options = {})
+    options[:class] = "form-label #{options[:class]}"
+    super(method, text, options)
   end
 
   private

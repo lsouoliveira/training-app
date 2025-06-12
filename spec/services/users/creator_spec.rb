@@ -31,7 +31,7 @@ RSpec.describe Users::Creator do
 
         user = service.create_user
 
-        expect(user.valid?).to be_truthy
+        expect(user.valid?(:setup)).to be_truthy
         expect(user.user_id).to be_present
       end
     end

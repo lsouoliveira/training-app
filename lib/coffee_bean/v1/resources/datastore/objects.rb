@@ -12,6 +12,10 @@ module CoffeeBean
           V1::Objects::Collection.from_json(response.body)
         end
 
+        def update(schema_name, id, **attributes)
+          put build_path(schema_name, id), body: attributes
+        end
+
         private
         def build_path(schema_name, id = nil, **params)
           path = "v1/marketing/datastore/schemas/#{schema_name}/objects"

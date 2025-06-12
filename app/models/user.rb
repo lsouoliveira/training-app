@@ -17,12 +17,15 @@ class User
                 :password,
                 :password_confirmation
 
+  validates :email, presence: true, on: :setup
+
   validates :name,
             :birthday,
             :gender,
             :hometown,
-            :email,
+            on: [ :setup, :profile_update ],
             presence: true
+
 
   validate :passwords_match
 

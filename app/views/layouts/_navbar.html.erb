@@ -8,6 +8,9 @@
       </button>
       <ul class="dropdown-menu dropdown-menu-end">
         <li>
+          <%= link_to "Edit Profile", edit_profile_path, class: "dropdown-item" %>
+        </li>
+        <li>
           <%= link_to "Logout", session_path, class: "dropdown-item", data: { turbo_method: :delete } %>
         </li>
       </ul>

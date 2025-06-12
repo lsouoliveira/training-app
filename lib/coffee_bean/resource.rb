@@ -15,6 +15,10 @@ module CoffeeBean
       perform_request :post, url, body, headers
     end
 
+    def put(url, body: {}, headers: {})
+      perform_request :put, url, body, headers
+    end
+
     def perform_request(method, *args)
       handle_response client.connection.public_send(method, *args)
     rescue Faraday::ConnectionFailed => e

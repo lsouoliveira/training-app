@@ -1,0 +1,43 @@
+<%= form_with url: profile_path, model: @user, method: :put do |f| %>
+  <% if user.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <div class="d-flex align-items-center">
+        <%= "#{pluralize(user.errors.count, "error")} prohibited this user from being saved:" %>
+      </div>
+      <div>
+        <ul>
+          <% user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= f.label :name, required: true %>
+    <%= f.text_field :name, required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :birthday, required: true %>
+    <%= f.date_field :birthday, required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :hometown, required: true %>
+    <%= f.text_field :hometown, required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :gender, required: true %>
+    <%= f.select(
+      :gender, 
+      User::GENDERS.values.map(&:capitalize), 
+      { prompt: "Select Gender" }, 
+      required: true
+    ) %>
+  </div>
+
+  <%= f.submit "Update", class: "w-100" %>
+<% end %>

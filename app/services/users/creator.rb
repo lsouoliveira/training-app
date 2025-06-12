@@ -7,7 +7,7 @@ module Users
     def create_user
       user = User.new(**@attributes)
 
-      return user unless user.valid?
+      return user unless user.valid?(:setup)
 
       with_error_handler(user) do
         create_user_credentials(user)
