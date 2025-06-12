@@ -65,7 +65,7 @@ RSpec.describe ProfilesController, type: :controller do
         put :update, params: params
 
         expect(response).to have_http_status(:redirect)
-        expect(response).to redirect_to(edit_profile_path)
+        expect(response).to redirect_to(root_path)
       end
     end
 
@@ -98,7 +98,7 @@ RSpec.describe ProfilesController, type: :controller do
         put :update, params: params
 
         expect(response).to have_http_status(:redirect)
-        expect(response).to redirect_to(edit_profile_path)
+        expect(response).to redirect_to(root_path)
       end
     end
   end

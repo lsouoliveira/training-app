@@ -47,7 +47,7 @@ RSpec.describe User, type: :model do
       JSON
 
       stub_coffee_bean_request(
-        "v1/marketing/login/users/1234?fields%5B%5D=picture_url",
+        "v1/marketing/login/users/1234?fields%5B%5D=picture_url&fields%5B%5D=verified_email",
         response: profile_response
       )
 

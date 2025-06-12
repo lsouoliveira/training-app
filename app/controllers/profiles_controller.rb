@@ -18,7 +18,7 @@ class ProfilesController < DashboardController
 
       create_or_update_object(object, payload)
 
-      redirect_to edit_profile_path, notice: "Profile update successfully!"
+      redirect_to root_path, notice: "Profile update successfully!"
     else
       render :edit, status: :unprocessable_entity
     end

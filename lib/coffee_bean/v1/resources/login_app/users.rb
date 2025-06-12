@@ -25,6 +25,10 @@ module CoffeeBean
 
             Objects::User.new(id: response.body["user_id"])
           end
+
+          def token(**params)
+            post("v2/marketing/oauth/token", body: params)
+          end
         end
       end
     end

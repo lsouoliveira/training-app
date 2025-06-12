@@ -23,5 +23,7 @@ module TrainingApp
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    config.hosts << "31b2-2804-29b8-503f-48e-a36c-360a-692b-30fd.ngrok-free.app"
   end
 end
