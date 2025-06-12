@@ -37,7 +37,7 @@ class User
     self.birthday = Date.parse(user_data["birthday"]) rescue nil
     self.gender = user_data["gender"]
     self.hometown = user_data["hometown"]
-    self.email = user_profile&.email_address
+    self.email = user_profile&.email_address || user_profile&.verified_email
     self.picture_url = user_profile&.picture_url
   end
 
@@ -57,7 +57,7 @@ class User
   end
 
   def fetch_user_profile
-    CoffeeBeanApi.account.user_management.users.fetch_user(user_id, fields: %w[ picture_url ])
+    CoffeeBeanApi.account.user_management.users.fetch_user(user_id, fields: %w[ picture_url verified_email ])
   rescue CoffeeBean::Errors::ClientError => e
     nil
   end
